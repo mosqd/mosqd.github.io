@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://rorange.me
 root: /
 permalink: posts/:abbrlink/
 permalink_defaults:
@@ -101,6 +101,16 @@ links:
   coolshell: https://coolshell.cn/
   刘未鹏: http://mindhacks.cn/
   nicksxs: http://nicksxs.me/
+
+# rss
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
