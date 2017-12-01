@@ -79,6 +79,29 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: next
 
+# sitemap
+sitemap:
+  path: sitemap.xml
+
+# search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+# Social links
+social:
+  GitHub: https://github.com/SH-SF
+
+# title, chinese available
+links_title: 友情链接
+# links
+links:
+  coolshell: https://coolshell.cn/
+  刘未鹏: http://mindhacks.cn/
+  nicksxs: http://nicksxs.me/
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

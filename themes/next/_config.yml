@@ -47,12 +47,12 @@ index_with_subtitle: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories/
-  #about: /about/
+  categories: /categories/
+  about: /about/
   archives: /archives/
   tags: /tags/
   #sitemap: /sitemap.xml
-  #commonweal: /404/
+  commonweal: /404.html
 
 # Enable/Disable menu icons.
 # Icon Mapping:
@@ -323,8 +323,8 @@ baidu_analytics: 819d6814f8470b2aba6ed162aac6bef3
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: rorange
   count: true
 
 # Hypercomments
@@ -488,7 +488,7 @@ algolia_search:
 # Local search
 # Dependencies: https://github.com/flashlab/hexo-generator-search
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
