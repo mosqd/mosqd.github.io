@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rorange.me/"/>
-  <updated>2017-11-15T12:05:56.000Z</updated>
+  <updated>2018-01-11T09:06:40.198Z</updated>
   <id>http://rorange.me/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>佛祖包邮，永无BUG</title>
+    <link href="http://rorange.me/posts/24287160/"/>
+    <id>http://rorange.me/posts/24287160/</id>
+    <published>2018-01-10T12:02:04.000Z</published>
+    <updated>2018-01-11T09:06:40.198Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在知乎闲逛时看到某回答中有个”&lt;strong&gt;佛祖保佑，永无BUG&lt;/strong&gt;“的注释，便想着何不在登陆linux时可以显示出来，并且加上金光闪闪的颜色。&lt;/p&gt;
+&lt;p&gt;修改/etc/motd文件，加入如下内容：&lt;/p&gt;
+&lt;figure
+        
+      
+    
+    </summary>
+    
+      <category term="Linux/Unix" scheme="http://rorange.me/categories/Linux-Unix/"/>
+    
+    
+      <category term="Linux" scheme="http://rorange.me/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
