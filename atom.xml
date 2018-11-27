@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rorange.me/"/>
-  <updated>2018-01-11T09:06:40.198Z</updated>
+  <updated>2018-11-27T10:25:44.518Z</updated>
   <id>http://rorange.me/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>go get代理</title>
+    <link href="http://rorange.me/posts/7f6b281c/"/>
+    <id>http://rorange.me/posts/7f6b281c/</id>
+    <published>2018-11-27T10:08:04.000Z</published>
+    <updated>2018-11-27T10:25:44.518Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;平时在用go get命令下载依赖时，经常会遇到类似&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;package google.golang.org/grpc/encoding/gzip: unrecognized import path
+        
+      
+    
+    </summary>
+    
+    
+      <category term="go" scheme="http://rorange.me/tags/go/"/>
+    
+  </entry>
   
   <entry>
     <title>佛祖包邮，永无BUG</title>
