@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="烂橘子 - rorange.me">
 <meta property="og:description" content="平时在用go get命令下载依赖时，经常会遇到类似  package google.golang.org/grpc/encoding/gzip: unrecognized import path “google.golang.org/grpc/encoding/gzip” (https fetch: Get https://google.golang.org/grpc/encoding/gzip?">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-27T10:25:44.518Z">
+<meta property="og:updated_time" content="2018-12-03T06:58:13.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="go get代理">
 <meta name="twitter:description" content="平时在用go get命令下载依赖时，经常会遇到类似  package google.golang.org/grpc/encoding/gzip: unrecognized import path “google.golang.org/grpc/encoding/gzip” (https fetch: Get https://google.golang.org/grpc/encoding/gzip?">
@@ -423,7 +423,7 @@
 <p>package google.golang.org/grpc/encoding/gzip: unrecognized import path “google.golang.org/grpc/encoding/gzip” (https fetch: Get <a href="https://google.golang.org/grpc/encoding/gzip?go-get=1" target="_blank" rel="external">https://google.golang.org/grpc/encoding/gzip?go-get=1</a>: dial tcp 216.239.37.1:443: i/o timeout)</p>
 </blockquote>
 <p>的问题，其实是这些资源被墙，所幸的是有很多使用代理的方式解决了这个问题。</p>
-<h2 id="设置git代理（官方提供的方法）"><a href="#设置git代理（官方提供的方法）" class="headerlink" title="设置git代理（官方提供的方法）"></a>设置git代理（官方提供的方法）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config [--global] http.proxy http://proxy.example.com:port</span><br><span class="line"><span class="meta">$</span> go get "google.golang.org/grpc/encoding/gzip"</span><br></pre></td></tr></table></figure>
+<h2 id="设置git代理"><a href="#设置git代理" class="headerlink" title="设置git代理"></a>设置git代理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config [--global] http.proxy http://proxy.example.com:port</span><br><span class="line"><span class="meta">$</span> go get "google.golang.org/grpc/encoding/gzip"</span><br></pre></td></tr></table></figure>
 <h2 id="shell环境变量"><a href="#shell环境变量" class="headerlink" title="shell环境变量"></a>shell环境变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> socks</span><br><span class="line">http_proxy=socks5://127.0.0.1:1080 go get "google.golang.org/grpc/encoding/zip"</span><br><span class="line"><span class="meta">#</span> http</span><br><span class="line">http_proxy=http://127.0.0.1:1080 go get "google.golang.org/grpc/encoding/gzip"</span><br></pre></td></tr></table></figure>
 <h2 id="VPN"><a href="#VPN" class="headerlink" title="VPN"></a>VPN</h2><p>那就直接<em>go get “google.golang.org/grpc/encoding/gzip”</em>吧</p>
 
@@ -676,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git代理（官方提供的方法）"><span class="nav-number">1.</span> <span class="nav-text">设置git代理（官方提供的方法）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell环境变量"><span class="nav-number">2.</span> <span class="nav-text">shell环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VPN"><span class="nav-number">3.</span> <span class="nav-text">VPN</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git代理"><span class="nav-number">1.</span> <span class="nav-text">设置git代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell环境变量"><span class="nav-number">2.</span> <span class="nav-text">shell环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VPN"><span class="nav-number">3.</span> <span class="nav-text">VPN</span></a></li></ol></div>
             
 
           </div>
