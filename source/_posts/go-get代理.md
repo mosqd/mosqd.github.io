@@ -10,7 +10,9 @@ date: 2018-11-27 18:08:04
 
 的问题，其实是这些资源被墙，所幸的是有很多使用代理的方式解决了这个问题。
 
-## 设置git代理（官方提供的方法）
+以*google.golang.org/grpc/encoding/gzip*为例：
+
+## 设置git代理
 
 ```shell
 $ git config [--global] http.proxy http://proxy.example.com:port
