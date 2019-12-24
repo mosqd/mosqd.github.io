@@ -96,16 +96,20 @@
 
 
 
-<meta name="description" content="专注于技术，享受编程带来的快乐">
-<meta property="og:type" content="website">
-<meta property="og:title" content="烂橘子 - rorange.me">
-<meta property="og:url" content="http://rorange.me/tags/go/index.html">
+<meta name="description" content="想要循环调用一个函数，其实有很多种方法，除了以下常见实现方式（for ,while），还可以通过修改rip寄存器来实现循环，文章末尾会介绍具体的案例。 常见循环实现12345678910111213141516171819// 1. forfor (;;) &amp;#123;    loop();&amp;#125;// 2. whilewhile (true) &amp;#123;    loop();&amp;#125;/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用rip寄存器实现循环">
+<meta property="og:url" content="http://rorange.me/posts/73ea24f2/index.html">
 <meta property="og:site_name" content="烂橘子 - rorange.me">
-<meta property="og:description" content="专注于技术，享受编程带来的快乐">
+<meta property="og:description" content="想要循环调用一个函数，其实有很多种方法，除了以下常见实现方式（for ,while），还可以通过修改rip寄存器来实现循环，文章末尾会介绍具体的案例。 常见循环实现12345678910111213141516171819// 1. forfor (;;) &amp;#123;    loop();&amp;#125;// 2. whilewhile (true) &amp;#123;    loop();&amp;#125;/">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2019/12/24/Orp843FZzL5yIoY.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/12/24/FD198mlPCnTcBjS.png">
+<meta property="og:updated_time" content="2019-12-24T08:06:35.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="烂橘子 - rorange.me">
-<meta name="twitter:description" content="专注于技术，享受编程带来的快乐">
+<meta name="twitter:title" content="利用rip寄存器实现循环">
+<meta name="twitter:description" content="想要循环调用一个函数，其实有很多种方法，除了以下常见实现方式（for ,while），还可以通过修改rip寄存器来实现循环，文章末尾会介绍具体的案例。 常见循环实现12345678910111213141516171819// 1. forfor (;;) &amp;#123;    loop();&amp;#125;// 2. whilewhile (true) &amp;#123;    loop();&amp;#125;/">
+<meta name="twitter:image" content="https://i.loli.net/2019/12/24/Orp843FZzL5yIoY.jpg">
 
 
 
@@ -134,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://rorange.me/tags/go/"/>
+  <link rel="canonical" href="http://rorange.me/posts/73ea24f2/"/>
 
 
 
 
 
-  <title>标签: go | 烂橘子 - rorange.me</title>
+  <title>利用rip寄存器实现循环 | 烂橘子 - rorange.me</title>
   
 
 
@@ -175,7 +179,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -313,54 +317,208 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>go<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://rorange.me/posts/73ea24f2/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rotten Orange">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="烂橘子 - rorange.me">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/posts/7f6b281c/" itemprop="url">
-              
-                <span itemprop="name">go get代理</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">利用rip寄存器实现循环</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-27T18:08:04+08:00"
-              content="2018-11-27" >
-          11-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-24T13:30:01+08:00">
+                2019-12-24
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/73ea24f2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/73ea24f2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/posts/73ea24f2/" class="leancloud_visitors" data-flag-title="利用rip寄存器实现循环">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>想要循环调用一个函数，其实有很多种方法，除了以下常见实现方式（for ,while），还可以通过修改rip寄存器来实现循环，文章末尾会介绍具体的案例。</p>
+<h2 id="常见循环实现"><a href="#常见循环实现" class="headerlink" title="常见循环实现"></a>常见循环实现</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. for</span></span><br><span class="line"><span class="keyword">for</span> (;;) &#123;</span><br><span class="line">    loop();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. while</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    loop();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. do while</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    loop();</span><br><span class="line">&#125; <span class="keyword">while</span> (<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. goto</span></span><br><span class="line">label:</span><br><span class="line">    loop();</span><br><span class="line">    <span class="keyword">goto</span> label;</span><br></pre></td></tr></table></figure>
+<h2 id="rip实现循环"><a href="#rip实现循环" class="headerlink" title="rip实现循环"></a>rip实现循环</h2><p>先来看一段代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// loop.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> i = <span class="number">111</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"in loop: %p\n"</span>, &amp;i);</span><br><span class="line">    <span class="comment">// 关键代码</span></span><br><span class="line">    *(&amp;i+<span class="number">2</span>) -= <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> i = <span class="number">110</span>;</span><br><span class="line">    loop();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"before loop: %p\n"</span>, &amp;i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> clang loop.c</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./a.out</span></span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">^C</span><br></pre></td></tr></table></figure>
+<p>为什么会出现这种效果？让我们先了解一下程序的执行过程。</p>
+<h3 id="运行时栈"><a href="#运行时栈" class="headerlink" title="运行时栈"></a>运行时栈</h3><p>main函数中调用loop，调用堆栈如下图所示：<br><img src="https://i.loli.net/2019/12/24/Orp843FZzL5yIoY.jpg" alt="stack _1_.jpg"><br>在main函数的栈帧中可以看到，会将loop函数（例子中没有参数）参数入栈，随后保存PC（即main中printf的地址）。通过call指令实现将PC值push到栈中，并将PC设置为loop函数的地址。loop执行后调用ret指令，从栈中保存的返回地址恢复到PC中，从而main函数继续执行。</p>
+<blockquote>
+<p>PC (program counter), 程序计数器，在x86-64中，用%rip寄存器表示。<br>The instruction pointer register points to the memory address which the processor will next attempt to execute.</p>
+</blockquote>
+<h3 id="反汇编"><a href="#反汇编" class="headerlink" title="反汇编"></a>反汇编</h3><p>现在我们大致了解了程序执行时栈的变化过程，要想实现loop函数循环，只要将saved PC在栈中的值改为loop()这条指令的地址。接下来，让我们看看a.out的关键部分的反汇编代码。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> objdump反汇编a.out</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> objdump -D a.out &gt; a.obj</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/12/24/FD198mlPCnTcBjS.png" alt="反汇编.png"></p>
+<p>27行汇编 callq调用loop的时候，会将下一条指令（leaq）的地址写入栈中，同时将PC设置为loop的地址，实现调用loop的效果，callq和leaq的地址相差5，在loop函数中，我们可以通过变量i来寻找saved PC的在栈中的地址，从来达到loop返回后，继续执行loop的效果。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># &amp;i+<span class="number">2</span>是saved PC的地址</span><br><span class="line"># 只要将栈中的数据改为callq的地址即可</span><br><span class="line">*(&amp;i+<span class="number">2</span>) -= <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="案例-go-defer实现"><a href="#案例-go-defer实现" class="headerlink" title="案例-go defer实现"></a>案例-go defer实现</h2><p>在函数ret之前，调用deferreturn，deferreturn会循环调用，检查defer函数是否全部调用完成。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">runtime.jmpdefer:</span><br><span class="line"> <span class="number">104f</span>890:   <span class="number">48</span> <span class="number">8b</span> <span class="number">54</span> <span class="number">24</span> <span class="number">08</span>  movq    <span class="number">8</span>(%rsp), %rdx</span><br><span class="line"> <span class="number">104f</span>895:   <span class="number">48</span> <span class="number">8b</span> <span class="number">5</span>c <span class="number">24</span> <span class="number">10</span>  movq    <span class="number">16</span>(%rsp), %rbx</span><br><span class="line"> <span class="number">104f</span>89a:   <span class="number">48</span> <span class="number">8</span>d <span class="number">63</span> f8     leaq    <span class="number">-8</span>(%rbx), %rsp</span><br><span class="line"> <span class="number">104f</span>89e:   <span class="number">48</span> <span class="number">8b</span> <span class="number">6</span>c <span class="number">24</span> f8  movq    <span class="number">-8</span>(%rsp), %rbp</span><br><span class="line"> <span class="number">104f</span>8a3:   <span class="number">48</span> <span class="number">83</span> <span class="number">2</span>c <span class="number">24</span> <span class="number">05</span>  subq    $<span class="number">5</span>, (%rsp)     <span class="comment">// 修改saved PC</span></span><br><span class="line"> 104f8a8:   48 8b 1a    movq    (%rdx), %rbx</span><br><span class="line"> <span class="number">104f</span>8ab:   ff e3   jmpq    *%rbx</span><br><span class="line"> <span class="number">104f</span>8ad:   cc  int3</span><br><span class="line"> <span class="number">104f</span>8ae:   cc  int3</span><br><span class="line"> <span class="number">104f</span>8af:   cc  int3</span><br><span class="line"></span><br><span class="line">runtime.deferreturn:</span><br><span class="line"> <span class="number">10264</span>a0:   <span class="number">48</span> <span class="number">83</span> ec <span class="number">48</span>     subq    $<span class="number">72</span>, %rsp</span><br><span class="line"> <span class="number">10264</span>a4:   <span class="number">48</span> <span class="number">89</span> <span class="number">6</span>c <span class="number">24</span> <span class="number">40</span>  movq    %rbp, <span class="number">64</span>(%rsp)</span><br><span class="line"> <span class="number">10264</span>a9:   <span class="number">48</span> <span class="number">8</span>d <span class="number">6</span>c <span class="number">24</span> <span class="number">40</span>  leaq    <span class="number">64</span>(%rsp), %rbp</span><br><span class="line"> <span class="number">10264</span>ae:   <span class="number">65</span> <span class="number">48</span> <span class="number">8b</span> <span class="number">04</span> <span class="number">25</span> a0 <span class="number">08</span> <span class="number">00</span> <span class="number">00</span>  movq    %gs:<span class="number">2208</span>, %rax</span><br><span class="line"> <span class="number">10264b</span>7:   <span class="number">48</span> <span class="number">8b</span> <span class="number">48</span> <span class="number">28</span>     movq    <span class="number">40</span>(%rax), %rcx</span><br><span class="line"> ...</span><br><span class="line"> <span class="number">1026534</span>:   <span class="number">48</span> <span class="number">8</span>d <span class="number">44</span> <span class="number">24</span> <span class="number">50</span>  leaq    <span class="number">80</span>(%rsp), %rax</span><br><span class="line"> <span class="number">1026539</span>:   <span class="number">48</span> <span class="number">89</span> <span class="number">44</span> <span class="number">24</span> <span class="number">38</span>  movq    %rax, <span class="number">56</span>(%rsp)</span><br><span class="line"> <span class="number">102653</span>e:   <span class="number">48</span> <span class="number">8b</span> <span class="number">44</span> <span class="number">24</span> <span class="number">20</span>  movq    <span class="number">32</span>(%rsp), %rax</span><br><span class="line"> <span class="number">1026543</span>:   <span class="number">48</span> <span class="number">89</span> <span class="number">04</span> <span class="number">24</span>     movq    %rax, (%rsp)</span><br><span class="line"> <span class="number">1026547</span>:   <span class="number">48</span> <span class="number">8b</span> <span class="number">44</span> <span class="number">24</span> <span class="number">38</span>  movq    <span class="number">56</span>(%rsp), %rax</span><br><span class="line"> <span class="number">102654</span>c:   <span class="number">48</span> <span class="number">89</span> <span class="number">44</span> <span class="number">24</span> <span class="number">08</span>  movq    %rax, <span class="number">8</span>(%rsp)</span><br><span class="line"> <span class="number">1026551</span>:   e8 <span class="number">3</span>a <span class="number">93</span> <span class="number">02</span> <span class="number">00</span>  callq   <span class="number">168762</span> &lt;runtime.jmpdefer&gt;</span><br><span class="line"> <span class="number">1026556</span>:   <span class="number">48</span> <span class="number">8b</span> <span class="number">6</span>c <span class="number">24</span> <span class="number">40</span>  movq    <span class="number">64</span>(%rsp), %rbp</span><br><span class="line"> <span class="number">102655b</span>:   <span class="number">48</span> <span class="number">83</span> c4 <span class="number">48</span>     addq    $<span class="number">72</span>, %rsp</span><br><span class="line"> <span class="number">102655f</span>:   c3  retq</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持原创技术分享，您的支持将鼓励我继续创作</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Rotten Orange WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Rotten Orange Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/7f6b281c/" rel="next" title="go get代理">
+                <i class="fa fa-chevron-left"></i> go get代理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -368,6 +526,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -388,8 +557,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -493,6 +671,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见循环实现"><span class="nav-number">1.</span> <span class="nav-text">常见循环实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rip实现循环"><span class="nav-number">2.</span> <span class="nav-text">rip实现循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时栈"><span class="nav-number">2.1.</span> <span class="nav-text">运行时栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反汇编"><span class="nav-number">2.2.</span> <span class="nav-text">反汇编</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-go-defer实现"><span class="nav-number">3.</span> <span class="nav-text">案例-go defer实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -606,10 +800,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -627,6 +821,18 @@
       <script id="dsq-count-scr" src="https://rorange.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://rorange.me/posts/73ea24f2/';
+          this.page.identifier = 'posts/73ea24f2/';
+          this.page.title = '利用rip寄存器实现循环';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://rorange.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
