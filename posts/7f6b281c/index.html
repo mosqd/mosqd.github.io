@@ -84,7 +84,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="烂橘子 - rorange.me" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="烂橘子 - go0x.com" type="application/atom+xml" />
 
 
 
@@ -100,8 +100,8 @@
 <meta name="keywords" content="go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="go get代理">
-<meta property="og:url" content="http://rorange.me/posts/7f6b281c/index.html">
-<meta property="og:site_name" content="烂橘子 - rorange.me">
+<meta property="og:url" content="http://go0x.com/posts/7f6b281c/index.html">
+<meta property="og:site_name" content="烂橘子 - go0x.com">
 <meta property="og:description" content="平时在用go get命令下载依赖时，经常会遇到类似  package google.golang.org/grpc/encoding/gzip: unrecognized import path “google.golang.org/grpc/encoding/gzip” (https fetch: Get https://google.golang.org/grpc/encoding/gzip?">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-12-03T07:06:57.575Z">
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://rorange.me/posts/7f6b281c/"/>
+  <link rel="canonical" href="http://go0x.com/posts/7f6b281c/"/>
 
 
 
 
 
-  <title>go get代理 | 烂橘子 - rorange.me</title>
+  <title>go get代理 | 烂橘子 - go0x.com</title>
   
 
 
@@ -188,7 +188,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">烂橘子 - rorange.me</span>
+        <span class="site-title">烂橘子 - go0x.com</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -329,7 +329,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://rorange.me/posts/7f6b281c/">
+    <link itemprop="mainEntityOfPage" href="http://go0x.com/posts/7f6b281c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rotten Orange">
@@ -338,7 +338,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="烂橘子 - rorange.me">
+      <meta itemprop="name" content="烂橘子 - go0x.com">
     </span>
 
     
@@ -424,8 +424,8 @@
 </blockquote>
 <p>的问题，其实是这些资源被墙，所幸的是有很多使用代理的方式解决了这个问题。</p>
 <p>以<em>google.golang.org/grpc/encoding/gzip</em>为例：</p>
-<h2 id="设置git代理"><a href="#设置git代理" class="headerlink" title="设置git代理"></a>设置git代理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config [--global] http.proxy http://proxy.example.com:port</span><br><span class="line"><span class="meta">$</span> go get "google.golang.org/grpc/encoding/gzip"</span><br></pre></td></tr></table></figure>
-<h2 id="shell环境变量"><a href="#shell环境变量" class="headerlink" title="shell环境变量"></a>shell环境变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> socks</span><br><span class="line">http_proxy=socks5://127.0.0.1:1080 go get "google.golang.org/grpc/encoding/zip"</span><br><span class="line"><span class="meta">#</span> http</span><br><span class="line">http_proxy=http://127.0.0.1:1080 go get "google.golang.org/grpc/encoding/gzip"</span><br></pre></td></tr></table></figure>
+<h2 id="设置git代理"><a href="#设置git代理" class="headerlink" title="设置git代理"></a>设置git代理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config [--global] http.proxy http://proxy.example.com:port</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> go get <span class="string">"google.golang.org/grpc/encoding/gzip"</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="shell环境变量"><a href="#shell环境变量" class="headerlink" title="shell环境变量"></a>shell环境变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> socks</span></span><br><span class="line">http_proxy=socks5://127.0.0.1:1080 go get "google.golang.org/grpc/encoding/zip"</span><br><span class="line"><span class="meta">#</span><span class="bash"> http</span></span><br><span class="line">http_proxy=http://127.0.0.1:1080 go get "google.golang.org/grpc/encoding/gzip"</span><br></pre></td></tr></table></figure>
 <h2 id="VPN"><a href="#VPN" class="headerlink" title="VPN"></a>VPN</h2><p>那就直接<em>go get “google.golang.org/grpc/encoding/gzip”</em>吧</p>
 
       
@@ -704,7 +704,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -824,7 +824,7 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://rorange.me/posts/7f6b281c/';
+          this.page.url = 'http://go0x.com/posts/7f6b281c/';
           this.page.identifier = 'posts/7f6b281c/';
           this.page.title = 'go get代理';
         };

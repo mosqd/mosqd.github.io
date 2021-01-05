@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>烂橘子 - rorange.me</title>
+  <title>烂橘子 - go0x.com</title>
   
   <subtitle>ZERO to ONE</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://rorange.me/"/>
+  <link href="http://go0x.com/"/>
   <updated>2019-12-24T08:15:20.475Z</updated>
-  <id>http://rorange.me/</id>
+  <id>http://go0x.com/</id>
   
   <author>
     <name>Rotten Orange</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>利用rip寄存器实现循环</title>
-    <link href="http://rorange.me/posts/73ea24f2/"/>
-    <id>http://rorange.me/posts/73ea24f2/</id>
+    <link href="http://go0x.com/posts/73ea24f2/"/>
+    <id>http://go0x.com/posts/73ea24f2/</id>
     <published>2019-12-24T05:30:01.000Z</published>
     <updated>2019-12-24T08:15:20.475Z</updated>
     
@@ -37,14 +37,14 @@
     </summary>
     
     
-      <category term="cs" scheme="http://rorange.me/tags/cs/"/>
+      <category term="cs" scheme="http://go0x.com/tags/cs/"/>
     
   </entry>
   
   <entry>
     <title>go get代理</title>
-    <link href="http://rorange.me/posts/7f6b281c/"/>
-    <id>http://rorange.me/posts/7f6b281c/</id>
+    <link href="http://go0x.com/posts/7f6b281c/"/>
+    <id>http://go0x.com/posts/7f6b281c/</id>
     <published>2018-11-27T10:08:04.000Z</published>
     <updated>2018-12-03T07:06:57.575Z</updated>
     
@@ -63,14 +63,14 @@
     </summary>
     
     
-      <category term="go" scheme="http://rorange.me/tags/go/"/>
+      <category term="go" scheme="http://go0x.com/tags/go/"/>
     
   </entry>
   
   <entry>
     <title>佛祖包邮，永无BUG</title>
-    <link href="http://rorange.me/posts/24287160/"/>
-    <id>http://rorange.me/posts/24287160/</id>
+    <link href="http://go0x.com/posts/24287160/"/>
+    <id>http://go0x.com/posts/24287160/</id>
     <published>2018-01-10T12:02:04.000Z</published>
     <updated>2018-01-11T09:06:40.198Z</updated>
     
@@ -88,17 +88,17 @@
     
     </summary>
     
-      <category term="Linux/Unix" scheme="http://rorange.me/categories/Linux-Unix/"/>
+      <category term="Linux/Unix" scheme="http://go0x.com/categories/Linux-Unix/"/>
     
     
-      <category term="Linux" scheme="http://rorange.me/tags/Linux/"/>
+      <category term="Linux" scheme="http://go0x.com/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://rorange.me/posts/4a17b156/"/>
-    <id>http://rorange.me/posts/4a17b156/</id>
+    <link href="http://go0x.com/posts/4a17b156/"/>
+    <id>http://go0x.com/posts/4a17b156/</id>
     <published>2017-11-15T12:05:56.000Z</published>
     <updated>2017-11-15T12:05:56.000Z</updated>
     
@@ -114,12 +114,12 @@
     
     </summary>
     
-      <category term="我的杂谈" scheme="http://rorange.me/categories/%E6%88%91%E7%9A%84%E6%9D%82%E8%B0%88/"/>
+      <category term="我的杂谈" scheme="http://go0x.com/categories/%E6%88%91%E7%9A%84%E6%9D%82%E8%B0%88/"/>
     
     
-      <category term="blog" scheme="http://rorange.me/tags/blog/"/>
+      <category term="blog" scheme="http://go0x.com/tags/blog/"/>
     
-      <category term="hexo" scheme="http://rorange.me/tags/hexo/"/>
+      <category term="hexo" scheme="http://go0x.com/tags/hexo/"/>
     
   </entry>
   

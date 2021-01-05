@@ -84,7 +84,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="烂橘子 - rorange.me" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="烂橘子 - go0x.com" type="application/atom+xml" />
 
 
 
@@ -100,8 +100,8 @@
 <meta name="keywords" content="cs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用rip寄存器实现循环">
-<meta property="og:url" content="http://rorange.me/posts/73ea24f2/index.html">
-<meta property="og:site_name" content="烂橘子 - rorange.me">
+<meta property="og:url" content="http://go0x.com/posts/73ea24f2/index.html">
+<meta property="og:site_name" content="烂橘子 - go0x.com">
 <meta property="og:description" content="想要循环调用一个函数，其实有很多种方法，除了以下常见实现方式（for ,while），还可以通过修改rip寄存器来实现循环，文章末尾会介绍具体的案例。 常见循环实现12345678910111213141516171819// 1. forfor (;;) &amp;#123;    loop();&amp;#125;// 2. whilewhile (true) &amp;#123;    loop();&amp;#125;/">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/12/24/Orp843FZzL5yIoY.jpg">
@@ -139,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://rorange.me/posts/73ea24f2/"/>
+  <link rel="canonical" href="http://go0x.com/posts/73ea24f2/"/>
 
 
 
 
 
-  <title>利用rip寄存器实现循环 | 烂橘子 - rorange.me</title>
+  <title>利用rip寄存器实现循环 | 烂橘子 - go0x.com</title>
   
 
 
@@ -191,7 +191,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">烂橘子 - rorange.me</span>
+        <span class="site-title">烂橘子 - go0x.com</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -332,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://rorange.me/posts/73ea24f2/">
+    <link itemprop="mainEntityOfPage" href="http://go0x.com/posts/73ea24f2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rotten Orange">
@@ -341,7 +341,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="烂橘子 - rorange.me">
+      <meta itemprop="name" content="烂橘子 - go0x.com">
     </span>
 
     
@@ -425,14 +425,14 @@
 <h2 id="常见循环实现"><a href="#常见循环实现" class="headerlink" title="常见循环实现"></a>常见循环实现</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. for</span></span><br><span class="line"><span class="keyword">for</span> (;;) &#123;</span><br><span class="line">    loop();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. while</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    loop();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. do while</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    loop();</span><br><span class="line">&#125; <span class="keyword">while</span> (<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. goto</span></span><br><span class="line">label:</span><br><span class="line">    loop();</span><br><span class="line">    <span class="keyword">goto</span> label;</span><br></pre></td></tr></table></figure>
 <h2 id="rip实现循环"><a href="#rip实现循环" class="headerlink" title="rip实现循环"></a>rip实现循环</h2><p>先来看一段代码</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// loop.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> i = <span class="number">111</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"in loop: %p\n"</span>, &amp;i);</span><br><span class="line">    <span class="comment">// 关键代码</span></span><br><span class="line">    *(&amp;i+<span class="number">2</span>) -= <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> i = <span class="number">110</span>;</span><br><span class="line">    loop();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"before loop: %p\n"</span>, &amp;i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 执行</span><br><span class="line"><span class="meta">$</span> clang loop.c</span><br><span class="line"><span class="meta">$</span> ./a.out</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">^C</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> clang loop.c</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./a.out</span></span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">in loop: 0x7ffee225f848</span><br><span class="line">^C</span><br></pre></td></tr></table></figure>
 <p>为什么会出现这种效果？让我们先了解一下程序的执行过程。</p>
 <h3 id="运行时栈"><a href="#运行时栈" class="headerlink" title="运行时栈"></a>运行时栈</h3><p>main函数中调用loop，调用堆栈如下图所示：<br><img src="https://i.loli.net/2019/12/24/Orp843FZzL5yIoY.jpg" alt="stack _1_.jpg"><br>在main函数的栈帧中可以看到，会将loop函数（例子中没有参数）参数入栈，随后保存PC（即main中printf的地址）。通过call指令实现将PC值push到栈中，并将PC设置为loop函数的地址。loop执行后调用ret指令，从栈中保存的返回地址恢复到PC中，从而main函数继续执行。</p>
 <blockquote>
 <p>PC (program counter), 程序计数器，在x86-64中，用%rip寄存器表示。<br>The instruction pointer register points to the memory address which the processor will next attempt to execute.</p>
 </blockquote>
 <h3 id="反汇编"><a href="#反汇编" class="headerlink" title="反汇编"></a>反汇编</h3><p>现在我们大致了解了程序执行时栈的变化过程，要想实现loop函数循环，只要将saved PC在栈中的值改为loop()这条指令的地址。接下来，让我们看看a.out的关键部分的反汇编代码。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> objdump反汇编a.out</span><br><span class="line"><span class="meta">$</span> objdump -D a.out &gt; a.obj</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> objdump反汇编a.out</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> objdump -D a.out &gt; a.obj</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/12/24/FD198mlPCnTcBjS.png" alt="反汇编.png"></p>
 <p>27行汇编 callq调用loop的时候，会将下一条指令（leaq）的地址写入栈中，同时将PC设置为loop的地址，实现调用loop的效果，callq和leaq的地址相差5，在loop函数中，我们可以通过变量i来寻找saved PC的在栈中的地址，从来达到loop返回后，继续执行loop的效果。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># &amp;i+<span class="number">2</span>是saved PC的地址</span><br><span class="line"># 只要将栈中的数据改为callq的地址即可</span><br><span class="line">*(&amp;i+<span class="number">2</span>) -= <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
@@ -711,7 +711,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -831,7 +831,7 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://rorange.me/posts/73ea24f2/';
+          this.page.url = 'http://go0x.com/posts/73ea24f2/';
           this.page.identifier = 'posts/73ea24f2/';
           this.page.title = '利用rip寄存器实现循环';
         };
