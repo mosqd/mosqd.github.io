@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 烂橘子 - rorange.me
+title: 烂橘子 - go0x.com
 subtitle: ZERO to ONE
 description: 专注于技术，享受编程带来的快乐
 author: Rotten Orange
@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://rorange.me
+url: http://go0x.com
 root: /
 permalink: posts/:abbrlink/
 permalink_defaults:
